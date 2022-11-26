@@ -26,12 +26,14 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
 
-    @PostMapping("/save")
+    @PostMapping(path = "/save",
+            consumes = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE}
+            ,produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE)
     public Employee createEmployee(@RequestBody Employee employee){
         return employeeService.createEmployee(employee);
 
     }
-    @GetMapping("/get")
+    @GetMapping(path = "/get",produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
     public List<Employee> getAllEmployee(){
 
         return employeeService.getAllEmployee();
@@ -39,17 +41,17 @@ public class EmployeeController {
 
 
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping(path = "/delete/{id}",produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
     public void deleteEmployee (@PathVariable("id") long id){
         employeeService.deleteEmployeeById(id);
     }
 
-    @GetMapping("employee/get/{id}")
+    @GetMapping(path = "employee/get/{id}",produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
     public Employee getEmployeeById(@PathVariable("id") long id){
         return employeeService.getEmployeeById(id);
     }
 
-    @PutMapping("/employee/update/{id}")
+    @PutMapping(path = "/employee/update/{id}",produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
     public Employee updateEmployee(@PathVariable long id, @RequestBody Employee employee){
         return employeeService.updateById(id,employee);
     }
