@@ -53,35 +53,8 @@ class EmployeeControllerTest {
     }
 
     @Test
-    void getAllEmployee() throws Exception {
+    void getAllEmployee(){
 
-        Employee employee2 = new Employee();
-        Employee employee1=new Employee();
-
-        employee2.setFirstName("Hamza");
-        employee2.setLastName("surname");
-        employee2.setPhone(123123);
-        employee2.setDepartment("IT");
-        employee2.setEmail("aaa@aaaa");
-        employee2.setCity("Ankara");
-        employee2.setSalary(123123);
-
-        employee1.setFirstName("Tahsin");
-        employee1.setLastName("Shan");
-        employee1.setPhone(123123);
-        employee1.setDepartment("IT");
-        employee1.setEmail("aaa@aaaa");
-        employee1.setCity("Ankara");
-        employee1.setSalary(999999);
-
-        ArrayList<Employee> employees0 = new ArrayList<>();
-        employees0.add(employee2);
-        employees0.add(employee1);
-
-        when(employeeRepository.findAll()).thenReturn(employees0);
-        mockMvc.perform(get("/get").accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk()).andExpect(jsonPath("$.FirstName", Matchers.is("Hamza")));
-
-        Mockito.verify(employeeRepository.findAll());
     }
 
     @Test
@@ -99,39 +72,6 @@ class EmployeeControllerTest {
 
 
 
-//    @ExtendWith(MockitoExtension.class)
-//    public class UserControllerTest {
-//
-//        @Mock
-//        UserService userService;
-//
-//        @InjectMocks
-//        UserController underTest;
-//
-//
-//        @Test
-//        void getUserByIdTest() {
-//            UserDTO userDTO=new UserDTO();
-//
-//            userDTO.setId(1L);
-//            userDTO.setEmail("a@email.com");
-//
-//            HttpServletRequest request=mock(HttpServletRequest.class);
-//
-//            when(userService.findById(1L)).thenReturn(userDTO);
-//
-//            when(request.getAttribute("id")).thenReturn(1L);
-//
-//
-//            ResponseEntity<UserDTO> userResponse=underTest.getUserById(request);
-//            UserDTO actual=userResponse.getBody();
-//
-//            assertAll(
-//                    ()->assertNotNull(actual),
-//                    ()->assertEquals(HttpStatus.OK, userResponse.getStatusCode()),
-//                    ()->assertEquals(1L, actual.getId())
-//            );
-//        }
-//
+
 
     }
