@@ -28,7 +28,7 @@ public class EmployeeController {
 
     @PostMapping(path = "/save",
             consumes = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE}
-            ,produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE)
+            ,produces = {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
     public Employee createEmployee(@RequestBody Employee employee){
         return employeeService.createEmployee(employee);
 
